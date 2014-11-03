@@ -23,6 +23,8 @@ Bundle 'tomasr/molokai'
 Bundle 'vim-ruby/vim-ruby'
 " Sourround your code
 Bundle 'tpope/vim-surround'
+" auto add end keyword to ruby blocks
+Bundle 'tpope/vim-endwise'
 " Autogen pairs
 Bundle 'jiangmiao/auto-pairs'
 " Tab completions
