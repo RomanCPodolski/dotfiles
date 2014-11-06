@@ -13,6 +13,8 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 " vim rails
 Bundle 'tpope/vim-rails.git'
+" ruby debugger
+Bundle 'astashov/vim-ruby-debugger'
 " comment shortcuts
 Bundle 'tomtom/tcomment_vim'
 " Colortheme solarized
