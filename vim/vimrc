@@ -37,6 +37,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'skalnik/vim-vroom'
 " Running tests in tmux session
 Bundle 'tpope/vim-dispatch'
+" RVM
+Bundle 'tpope/vim-rvm'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 Bundle 'nono/vim-handlebars'
@@ -44,6 +46,9 @@ Bundle 'nono/vim-handlebars'
 Bundle 'scrooloose/nerdtree'
 " commenting code
 Bundle 'scrooloose/nerdcommenter'
+" Make GVim colorschemes work in Terminal-Vim
+Bundle 'godlygeek/csapprox'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -68,6 +73,7 @@ augroup END
 syntax enable
 set background=dark
 let g:molokai_original=1
+let g:molokai_termcolors=256
 let g:rehash256=1
 colorscheme molokai
 
@@ -99,7 +105,7 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
 " Auto nerdtree on start
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 " no ugly line wrap
 set nowrap
