@@ -26,13 +26,19 @@ apt-get install subversion
 
 # git
 apt-get install git git-svn git-flow
+git config --global github.user JavaTheHood
 
 # gradle
 apt-get install groovy gradle
 
+# build essentials and python
+apt-get install build-essential cmake python-dev
+
 # rvm und ruby
 if [ ! -d "$HOME/.rvm" ]; then
-	exec curl -sSL https://get.rvm.io | bash -s stable
+	exec curl -sSL https://get.rvm.io | bash -s stable --ruby
+	gem install bundler
+	gem install rubocop
 fi
 
 # set up vim
@@ -43,7 +49,13 @@ if [ ! -d "$HOME/.vim" ]; then
 		git clone git@github.com:JavaTheHood/vimrc.git "$HOME/workspace/vimrc"
 	fi
 	cp "$HOME/workspace/vimrc/vim/vimrc" "$HOME/.vimrc"
+	vim +PluginInstall +qall
+	sh ~/.vim/bundle/youcompleteme/install.sh
 fi
+
+# set up tmux
+apt-get install tmux
+cp "$HOME/workspace/vimrc/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 # Intellij
 if [ ! -d "/opt/jetbrains" ]; then
@@ -55,6 +67,7 @@ fi
 
 # Apache Maven
 if [ -z "$M2_HOME" ]; then
+	echo "Installing Maven"
 	curl -Ls "https://mirror.arcor-online.net/www.apache.org/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz" | tar -xvz -C /usr/local/apache-maven/
 	export M2_HOME="/usr/local/apache-maven/apache-maven-3.2.3"
 	export M2="$M2_HOME/bin"
@@ -67,7 +80,9 @@ if [ -z "$M2_HOME" ]; then
 	echo export PATH="$PATH:$M2" >> "$HOME/.bashrc"
 fi
 
+# Apache HBase
 if [ ! -d "/opt/apache-hbase" ]; then
-	mkdir /opt/apache-hbase
+	echo "Installing Hbase"
+	mkdir "/opt/apache-hbase"
 	curl -Ls "http://mirrors.ae-online.de/apache/hbase/stable/hbase-0.98.7-hadoop2-bin.tar.gz" | tar -xvt -C /opt/apache-hbase/
 fi

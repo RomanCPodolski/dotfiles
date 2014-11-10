@@ -54,7 +54,10 @@ Bundle 'godlygeek/csapprox'
 Bundle 'valloric/youcompleteme'
 " Syntax Checker
 Bundle 'scrooloose/syntastic'
-
+" Vim Web
+Bundle 'mattn/webapi-vim'
+" Gists
+Bundle 'mattn/gist-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
