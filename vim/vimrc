@@ -50,6 +50,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 " Make GVim colorschemes work in Terminal-Vim
 Bundle 'godlygeek/csapprox'
+" Autocomplete
+Bundle 'valloric/youcompleteme'
+" Syntax Checker
+Bundle 'scrooloose/syntastic'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
