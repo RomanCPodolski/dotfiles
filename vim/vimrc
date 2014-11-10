@@ -66,6 +66,9 @@ filetype plugin indent on
 syntax on                 " Enable syntax highlighting
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_save = 1
 augroup myfiletypes
 	" Clear old autocmds in group
 	autocmd!
