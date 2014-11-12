@@ -2,41 +2,48 @@
 #
 # This bash script is provides a quick setup for a debian based linux distribution
 # It downloads and installes all tools I like and use
-# run as root!
-
-if [ "$(whoami)" != "root" ]; then
-	echo "Are you root?"
-	exit 1
-fi
+# This script will maipulate your ~/.bashrc. So maybe take a look at it after running the script.
+# I am a beginner at bash and dash coding, so please dont just run this script without knowing what it does
+# and what will be installed. Take a look at the code first, and manipulate it when needed.
+# Also, I highly aprecheate contributing to this. If you got a nice idear how to improove this setup script,
+# fork this repo, build your changes in and send me a pull request.
 
 # Java Openjdk
-apt-get install openjdk-7-jdk
+sudo apt-get install openjdk-7-jdk
 
+sudo apt-get install htop
 # mysql
-apt-get install mysql-common mysql-workbench
+sudo apt-get install mysql-common mysql-workbench
 
 # postgresql
-apt-get install postgresql pgadmin3 postgis
+sudo apt-get install postgresql pgadmin3 postgis
 
 # curl
-apt-get install curl
+sudo apt-get install curl
 
 # subversion
-apt-get install subversion
+sudo apt-get install subversion
 
 # git
-apt-get install git git-svn git-flow
-git config --global github.user JavaTheHood
+sudo apt-get install git git-svn git-flow
+sudo git config --global github.user JavaTheHood
 
 # gradle
-apt-get install groovy gradle
+sudo apt-get install groovy gradle
 
 # build essentials and python
-apt-get install build-essential cmake python-dev
+sudo apt-get install build-essential cmake python-dev
 
-# rvm und ruby
+# latex
+sudo apt-get install texlive-full texmaker texstudio texworks
+# TODO: arara,
+curl -sOL dl.bintray.com/cereda/arara/arara-3.0-installer.jar && sudo java -jar arara-*.*-installer.jar && rm arara-*.*-installer.jar # rvm and ruby
+
+cd ~/Vorlagen
+git clone git@github.com:JavaTheHood/latexTemplates.git
+cp ~/Vorlagen/latexTemplates ~/.vim/
 if [ ! -d "$HOME/.rvm" ]; then
-	exec curl -sSL https://get.rvm.io | bash -s stable --ruby
+	curl -sSL https://get.rvm.io | bash -s stable --ruby
 	gem install bundler
 	gem install rubocop
 fi
@@ -51,6 +58,7 @@ if [ ! -d "$HOME/.vim" ]; then
 	cp "$HOME/workspace/vimrc/vim/vimrc" "$HOME/.vimrc"
 	vim +PluginInstall +qall
 	sh ~/.vim/bundle/youcompleteme/install.sh
+	# todo - remap esc to capslock
 fi
 
 # set up tmux
@@ -75,9 +83,9 @@ if [ -z "$M2_HOME" ]; then
 	export PATH="$PATH:$M2"
 
 	echo export M2_HOME="/usr/local/apache-maven/apache-maven-3.2.3" >> "$HOME/.bashrc"
-	echo export M2="$M2_HOME/bin" >> "$HOME/.bashrc"
-	echo export MAVEN_OPTS="-Xms256m -Xmx512m" >> "$HOME/.bashrc"
-	echo export PATH="$PATH:$M2" >> "$HOME/.bashrc"
+	echo export M2=\"\$M2_HOME/bin\" >> "$HOME/.bashrc"
+	echo export MAVEN_OPTS=\"-Xms256m -Xmx512m\" >> "$HOME/.bashrc"
+	echo export PATH=\"$PATH:$M2\" >> "$HOME/.bashrc"
 fi
 
 # Apache HBase
