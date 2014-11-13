@@ -8,6 +8,7 @@
 # Also, I highly aprecheate contributing to this. If you got a nice idear how to improove this setup script,
 # fork this repo, build your changes in and send me a pull request.
 
+sudo apt-get install flashplugin-installer 
 # Java Openjdk
 sudo apt-get install openjdk-7-jdk
 
