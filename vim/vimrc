@@ -58,6 +58,11 @@ Bundle 'scrooloose/syntastic'
 Bundle 'mattn/webapi-vim'
 " Gists
 Bundle 'mattn/gist-vim'
+" latex
+Bundle 'gerw/vim-latex-suite'
+" Grammar checker
+Bundle 'vim-scripts/languagetool'
+filetype plugin indent on
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -121,3 +126,19 @@ noremap   <Right>  <NOP>
 
 " no ugly line wrap
 set nowrap
+
+" vim-latexsuite uses pdflatex by defauld to compile .tex documents
+filetype plugin on
+filetype indent on
+au BufEnter *.tex set autowrite
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats = 'pdf'
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
+let g:Tex_GotoError = 0
+let g:Tex_ViewRule_pdf = 'evince'
+
+au BufNewFile,BufRead,BufEnter   *.wiki    setlocal spell    spelllang=de_de
+au BufNewFile,BufRead,BufEnter   *.md      setlocal spell    spelllang=de_de
+au BufNewFile,BufRead,BufEnter   *.txt     setlocal spell    spelllang=de_de
+au BufNewFile,BufRead,BufEnter   *.tex     setlocal spell    spelllang=de_de
+au BufNewFile,BufRead,BufEnter   README    setlocal spell    spelllang=en_us
