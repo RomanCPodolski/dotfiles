@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # This bash script is provides a quick setup for a debian based linux distribution
 # It downloads and installes all tools I like and use
