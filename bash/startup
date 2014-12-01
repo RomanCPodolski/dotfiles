@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+xmodmap ~/.speedswapper &
+gnome-terminal -e "tmux" --window --full-screen &
+spotify &
