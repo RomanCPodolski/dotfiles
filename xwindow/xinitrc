@@ -1,1 +1,5 @@
-xmodmap ~/.speedswapper
+#!/usr/bin/env bash
+
+xmodmap ~/.speedswapper &
+gnome-terminal --window --maximize &
+spotify &
