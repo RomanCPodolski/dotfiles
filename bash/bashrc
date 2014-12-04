@@ -111,7 +111,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -141,8 +140,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+## run tmux on opening terminal
+#if [[ ! $TERM =~ screen  ]]; then
+	    #exec tmux
+#fi
+
+
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export EDITOR=vim
 
 # Maven
 export M2_HOME="/usr/local/apache-maven/apache-maven-3.2.3"
