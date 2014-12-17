@@ -21,8 +21,6 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'altercation/vim-colors-solarized'
 " Colortheme molokai
 Bundle 'tomasr/molokai'
-" Dark colorscheme
-Bundle 'adrianolaru/vim-adio'
 " ruby support
 Bundle 'vim-ruby/vim-ruby'
 " Sourround your code
@@ -32,7 +30,7 @@ Bundle 'tpope/vim-endwise'
 " Autogen pairs
 Bundle 'jiangmiao/auto-pairs'
 " Tab completions
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 " plugin on GitHub repo
 Plugin 'kchmck/vim-coffee-script'
 " Fuzzy finder for vim (CTRL-P)
@@ -66,8 +64,14 @@ Bundle 'gerw/vim-latex-suite'
 Bundle 'vim-scripts/languagetool'
 " Vim Javascript
 Bundle 'pangloss/vim-javascript'
-" Vim Cucumber
-Bundle 'tpope/vim-cucumber'
+" Vim Snippets
+Bundle 'honza/vim-snippets'
+" Dependencies for Spnipped Engine
+Bundle 'marcweber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+" Close Tags
+Bundle 'vim-scripts/closetag.vim'
 filetype plugin indent on
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -99,11 +103,6 @@ let g:molokai_original=1
 let g:molokai_termcolors=256
 let g:rehash256=1
 colorscheme molokai
-
-set encoding=utf-8
-set fillchars=vert:\│
-set number
-set cursorline
 
 set nu
 
@@ -153,3 +152,5 @@ au BufNewFile,BufRead,BufEnter   *.md      setlocal spell    spelllang=de_de
 au BufNewFile,BufRead,BufEnter   *.txt     setlocal spell    spelllang=de_de
 au BufNewFile,BufRead,BufEnter   *.tex     setlocal spell    spelllang=de_de
 au BufNewFile,BufRead,BufEnter   README    setlocal spell    spelllang=en_us
+
+set history=200
