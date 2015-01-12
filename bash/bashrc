@@ -163,3 +163,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export HBASE_HOME="$HOME/workspace/test/hbase-0.99.1"
 export HBASE="$HOME/workspace/test/hbase-0.99.1/bin"
 export PATH="$PATH:$HBASE"
+
+# NPM
+npm config set prefix ~/npm
+export PATH="$PATH:$HOME/npm/bin"
