@@ -22,6 +22,5 @@ windows:
   - editor:
       layout: main-vertical
       panes:
-        - grunt watch 
+        - grunt serve
         - vim
-  - selenium: webdriver-manager update && webdriver-manager start
