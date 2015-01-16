@@ -24,3 +24,8 @@ windows:
       panes:
         - grunt serve
         - vim
+  - music-player:
+    - ncmpcpp 
+  - server:
+    - cd ..
+    - start
