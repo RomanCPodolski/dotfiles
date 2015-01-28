@@ -79,14 +79,25 @@ BMAG="\[\033[45m\]" # background magenta
 BCYN="\[\033[46m\]" # background cyan
 BWHT="\[\033[47m\]" # background white
 
-parse_git_branch() {
-	  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+parse_git_branch () {
+  git name-rev HEAD 2> /dev/null | sed 's#HEAD\ \(.*\)# (git::\1)#'
+}
+
+parse_svn_branch() {
+  parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk '{print " (svn::"$1")" }'
+}
+	
+parse_svn_url() {
+  svn info 2>/dev/null | sed -ne 's#^URL: ##p'
+}
+parse_svn_repository_root() {
+  svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
 
 if [ "$color_prompt" = yes ]; then
-	PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(parse_git_branch)$ "
+	PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(parse_git_branch)\$(parse_svn_branch)$ "
 else
-	PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(parse_git_branch)$ "
+	PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(parse_git_branch)\$(parse_svn_branch)$ "
 fi
 unset color_prompt force_color_prompt
 

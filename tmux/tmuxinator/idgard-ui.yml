@@ -7,7 +7,7 @@ root: ~/workspace/idgard-webapp/idgard-ui
 # socket_name: foo
 
 # Runs before everything. Use it to start daemons etc.
-# pre: npm install 
+# pre: sudo service mopidy start 
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
@@ -22,10 +22,16 @@ windows:
   - editor:
       layout: main-vertical
       panes:
-        - grunt serve
-        - vim
+        - grunt:
+          - ./build 
+          - ./start
+        - vim:
+          - vim +BundleUpdate +q +NERDTree
   - music-player:
+    - echo MdTOKDC6 | sudo -S service mopidy start
     - ncmpcpp 
   - server:
     - cd ..
-    - start
+    - ./start
+  - irc:
+    - irssi
