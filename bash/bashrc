@@ -91,7 +91,7 @@ parse_svn_url() {
   svn info 2>/dev/null | sed -ne 's#^URL: ##p'
 }
 parse_svn_repository_root() {
-  svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
+  svn info 2>/dev/null | sed -ne 's#^Basis des Projektarchivs: ##p'
 }
 
 if [ "$color_prompt" = yes ]; then
