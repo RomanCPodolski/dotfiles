@@ -84,14 +84,14 @@ parse_git_branch () {
 }
 
 parse_svn_branch() {
-  parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk '{print " (svn::"$1")" }'
+  parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$' | awk '{print " (svn::"$1")" }'
 }
 	
 parse_svn_url() {
-  svn info 2>/dev/null | sed -ne 's#^URL: ##p'
+  svn info 2>/dev/null | sed -ne 's#^URL: ##p';
 }
 parse_svn_repository_root() {
-  svn info 2>/dev/null | sed -ne 's#^Basis des Projektarchivs: ##p'
+  svn info 2>/dev/null | sed -ne '4s#^[^:]*: ##p';
 }
 
 if [ "$color_prompt" = yes ]; then

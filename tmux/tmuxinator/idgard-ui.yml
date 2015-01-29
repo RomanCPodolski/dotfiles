@@ -18,6 +18,10 @@ root: ~/workspace/idgard-webapp/idgard-ui
 # Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
+
+pre:
+  - sudo service mopidy start 
+  - svn update ~/workspace/idgard-webapp
 windows:
   - editor:
       layout: main-vertical
@@ -28,7 +32,6 @@ windows:
         - vim:
           - vim +BundleUpdate +q +NERDTree
   - music-player:
-    - echo MdTOKDC6 | sudo -S service mopidy start
     - ncmpcpp 
   - server:
     - cd ..

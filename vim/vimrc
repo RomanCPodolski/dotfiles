@@ -9,6 +9,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " nice looking bottom line
 Bundle 'bling/vim-airline'
+" tmux bottom line
+Bundle 'edkolev/tmuxline.vim'
 " Git tools
 Bundle 'tpope/vim-fugitive'
 " vim rails
@@ -67,6 +69,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Raimondi/delimitMate'
+" Angular
+Bundle 'burnettk/vim-angular'
 " Vim Jasmine
 Bundle 'claco/jasmine.vim'
 " Vim Snippets
@@ -77,6 +81,12 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 " Close Tags
 Bundle 'vim-scripts/closetag.vim'
+" Templates in vim
+Bundle 'aperezdc/vim-template'
+" Tagbar
+Bundle 'majutsushi/tagbar'
+" indent html
+Bundle 'othree/html5.vim'
 filetype plugin indent on
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -97,14 +107,27 @@ augroup myfiletypes
 augroup END
 " ================
 "
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_jshint_exec = '/home/roman/npm/bin/jshint'
+let g:syntastic_javascript_jshint_exec = '/home/roman/npm/bin/jshint'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
-
 " javascript stuff
+let g:angular_source_directory = "app/scripts"
+let g:angular_test_directory = 'test/specs'
 
+set foldmethod=syntax
 
 syntax enable
 set background=dark
@@ -128,8 +151,13 @@ filetype plugin on
 " Airlinebar config
 let g:airline_theme='luna'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
+map <F7> :NERDTreeToggle<CR>
+map <F8> :TagbarToggle<CR>
+
+" inoremap <leader>; <C-o>A;
 
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
