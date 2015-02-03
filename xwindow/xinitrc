@@ -1,5 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
+#
+# path: $HOME/.xinitrc
+#
+# Executed by startx (run your window manager from here)
 
-xmodmap ~/.speedswapper &
-gnome-terminal --window --maximize &
-spotify &
+# swap caps lock and escape
+xmodmap -e "remove Lock = Caps_Lock"
+xmodmap -e "keysym Escape = Caps_Lock"
+xmodmap -e "keysym Caps_Lock = Escape"
+xmodmap -e "add Lock = Caps_Lock"
