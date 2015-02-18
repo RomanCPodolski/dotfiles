@@ -5,13 +5,8 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-" nice looking bottom line
 Bundle 'bling/vim-airline'
-" tmux bottom line
-Bundle 'edkolev/tmuxline.vim'
-" Git tools
 Bundle 'tpope/vim-fugitive'
 " vim rails
 Bundle 'tpope/vim-rails.git'
@@ -23,6 +18,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'altercation/vim-colors-solarized'
 " Colortheme molokai
 Bundle 'tomasr/molokai'
+" Colortheme Darkmate
+Bundle 'yearofmoo/Vim-Darkmate'
 " ruby support
 Bundle 'vim-ruby/vim-ruby'
 " Sourround your code
@@ -34,13 +31,15 @@ Bundle 'jiangmiao/auto-pairs'
 " Tab completions
 "Bundle 'ervandew/supertab'
 " plugin on GitHub repo
-Plugin 'kchmck/vim-coffee-script'
+Bundle 'kchmck/vim-coffee-script'
 " Fuzzy finder for vim (CTRL-P)
 Bundle 'kien/ctrlp.vim'
+
+Bundle 'editorconfig/editorconfig-vim'
 " Ruby Tests
-Bundle 'skalnik/vim-vroom'
+" Bundle 'skalnik/vim-vroom'
 " Running tests in tmux session
-Bundle 'tpope/vim-dispatch'
+" Bundle 'tpope/vim-dispatch'
 " RVM
 Bundle 'tpope/vim-rvm'
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -50,43 +49,21 @@ Bundle 'nono/vim-handlebars'
 Bundle 'scrooloose/nerdtree'
 " commenting code
 Bundle 'scrooloose/nerdcommenter'
-" Make GVim colorschemes work in Terminal-Vim
-Bundle 'godlygeek/csapprox'
-" Autocomplete
 Bundle 'valloric/youcompleteme'
-" Syntax Checker
 Bundle 'scrooloose/syntastic'
-" Vim Web
-Bundle 'mattn/webapi-vim'
-" Gists
-Bundle 'mattn/gist-vim'
-" latex
-Bundle 'gerw/vim-latex-suite'
-" Grammar checker
-Bundle 'vim-scripts/languagetool'
 " Vim Javascript
 Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Raimondi/delimitMate'
 " Angular
 Bundle 'burnettk/vim-angular'
-" Vim Jasmine
-Bundle 'claco/jasmine.vim'
-" Vim Snippets
-Bundle 'honza/vim-snippets'
-" Dependencies for Spnipped Engine
-Bundle 'marcweber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
 " Close Tags
 Bundle 'vim-scripts/closetag.vim'
 " Templates in vim
 Bundle 'aperezdc/vim-template'
-" Tagbar
 Bundle 'majutsushi/tagbar'
-" indent html
-Bundle 'othree/html5.vim'
+Bundle 'wavded/vim-stylus'
+Bundle 'digitaltoad/vim-jade'
 filetype plugin indent on
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -120,21 +97,26 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_javascript_jshint_exec = '/home/roman/npm/bin/jshint'
+let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
 " javascript stuff
 let g:angular_source_directory = "app/scripts"
 let g:angular_test_directory = 'test/specs'
 
+autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+autocmd BufNewFile,BufRead *.styl set filetype=stylus
+autocmd BufNewFile,BufRead *.jade set filetype=jade
 set foldmethod=syntax
 
 syntax enable
-set background=dark
-let g:molokai_original=1
-let g:molokai_termcolors=256
-let g:rehash256=1
-colorscheme molokai
+"set background=dark
+"let g:molokai_original=1
+"let g:molokai_termcolors=256
+"let g:rehash256=1
+"colorscheme molokai
+
+colorscheme darkmate
 
 set nu
 
@@ -168,6 +150,20 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+" Tab Mappings
+
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+" Alternatively use
+"nnoremap th :tabnext<CR>
+"nnoremap tl :tabprev<CR>
+"nnoremap tn :tabnew<CR>
 " Auto nerdtree on start
 " autocmd vimenter * NERDTree
 
