@@ -8,3 +8,8 @@
 !*.gitignore
 !.tmuxinator
 !*.tmux.conf
+!bash
+!tmux
+!vim
+!wallpapers
+!xwindow
