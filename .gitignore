@@ -6,5 +6,5 @@
 !*.vim
 !*.bashrc
 !*.gitignore
-!*.tmuxinator
+!.tmuxinator
 !*.tmux.conf
