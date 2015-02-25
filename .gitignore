@@ -6,5 +6,10 @@
 !*.vim
 !*.bashrc
 !*.gitignore
-!.tmuxinator
+!*.gitconfig
+#!*.tmuxinator/*
 !*.tmux.conf
+#!*.ssh/knownhosts
+
+# ...even if there are in subdirectories
+#!*/
