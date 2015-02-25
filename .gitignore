@@ -7,9 +7,9 @@
 !*.bashrc
 !*.gitignore
 !*.gitconfig
-#!*.tmuxinator/*
+!.tmuxinator/*
 !*.tmux.conf
-#!*.ssh/knownhosts
+!knownhosts
 
 # ...even if there are in subdirectories
-#!*/
+!*/
