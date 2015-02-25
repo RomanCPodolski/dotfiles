@@ -5,19 +5,16 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" let vundle manage itself
 Plugin 'gmarik/Vundle.vim'
+" airline for vim
 Bundle 'bling/vim-airline'
+" a git wrapper so awsome, is should be illegal
 Bundle 'tpope/vim-fugitive'
 " vim rails
 Bundle 'tpope/vim-rails.git'
 " ruby debugger
 Bundle 'astashov/vim-ruby-debugger'
-" comment shortcuts
-Bundle 'tomtom/tcomment_vim'
-" Colortheme solarized
-Bundle 'altercation/vim-colors-solarized'
-" Colortheme molokai
-Bundle 'tomasr/molokai'
 " Colortheme Darkmate
 Bundle 'yearofmoo/Vim-Darkmate'
 " ruby support
@@ -28,41 +25,35 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 " Autogen pairs
 Bundle 'jiangmiao/auto-pairs'
-" Tab completions
-"Bundle 'ervandew/supertab'
 " plugin on GitHub repo
 Bundle 'kchmck/vim-coffee-script'
-" Fuzzy finder for vim (CTRL-P)
-Bundle 'kien/ctrlp.vim'
 
 Bundle 'editorconfig/editorconfig-vim'
-" Ruby Tests
-" Bundle 'skalnik/vim-vroom'
-" Running tests in tmux session
-" Bundle 'tpope/vim-dispatch'
 " RVM
 Bundle 'tpope/vim-rvm'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
-Bundle 'nono/vim-handlebars'
 " file tree
 Bundle 'scrooloose/nerdtree'
 " commenting code
 Bundle 'scrooloose/nerdcommenter'
+" code completeion
 Bundle 'valloric/youcompleteme'
+" syntax checking
 Bundle 'scrooloose/syntastic'
 " Vim Javascript
 Bundle 'pangloss/vim-javascript'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'nathanaelkane/vim-indent-guides'
 " Angular
 Bundle 'burnettk/vim-angular'
 " Close Tags
 Bundle 'vim-scripts/closetag.vim'
 " Templates in vim
 Bundle 'aperezdc/vim-template'
+" Tagbar support
 Bundle 'majutsushi/tagbar'
+" Stylus support
 Bundle 'wavded/vim-stylus'
+" Jade support
 Bundle 'digitaltoad/vim-jade'
 filetype plugin indent on
 call vundle#end()            " required
@@ -110,12 +101,6 @@ autocmd BufNewFile,BufRead *.jade set filetype=jade
 set foldmethod=syntax
 
 syntax enable
-"set background=dark
-"let g:molokai_original=1
-"let g:molokai_termcolors=256
-"let g:rehash256=1
-"colorscheme molokai
-
 colorscheme darkmate
 
 set nu
@@ -160,30 +145,9 @@ nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
-" Alternatively use
-"nnoremap th :tabnext<CR>
-"nnoremap tl :tabprev<CR>
-"nnoremap tn :tabnew<CR>
-" Auto nerdtree on start
-" autocmd vimenter * NERDTree
+nnoremap to  :tabnew<CR>
 
 " no ugly line wrap
 set nowrap
-
-" vim-latexsuite uses pdflatex by defauld to compile .tex documents
-filetype plugin on
-filetype indent on
-au BufEnter *.tex set autowrite
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_MultipleCompileFormats = 'pdf'
-let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
-let g:Tex_GotoError = 0
-let g:Tex_ViewRule_pdf = 'evince'
-
-au BufNewFile,BufRead,BufEnter   *.wiki    setlocal spell    spelllang=de_de
-au BufNewFile,BufRead,BufEnter   *.md      setlocal spell    spelllang=de_de
-au BufNewFile,BufRead,BufEnter   *.txt     setlocal spell    spelllang=de_de
-au BufNewFile,BufRead,BufEnter   *.tex     setlocal spell    spelllang=de_de
-au BufNewFile,BufRead,BufEnter   README    setlocal spell    spelllang=en_us
 
 set history=200
