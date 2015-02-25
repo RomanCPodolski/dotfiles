@@ -57,6 +57,8 @@ Bundle 'wavded/vim-stylus'
 Bundle 'digitaltoad/vim-jade'
 " Gundo is a plugin to visualize vims undo tree.
 Bundle 'sjl/gundo.vim'
+" Trac integration for vim
+Bundle 'mjbrownie/Trac.vim'
 filetype plugin indent on
 
 call vundle#end()            " required
@@ -141,6 +143,8 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 " Tab Mappings
 
 nnoremap th  :tabfirst<CR>
