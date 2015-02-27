@@ -5,11 +5,14 @@
 !*.vimrc
 !*.vim
 !*.bashrc
+!*.bash_aliases
 !*.gitignore
 !*.gitconfig
-!.tmuxinator/*
+!.tmuxinator/lmu_personal_db.yml
+!.tmuxinator/idgard-frontend.yml
 !*.tmux.conf
-!knownhosts
+!.ssh/knownhosts
+!*.zshrc
 
 # ...even if there are in subdirectories
-!*/
+#!*/

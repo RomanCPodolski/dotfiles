@@ -56,7 +56,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
 if [ "$color_prompt" = yes ]; then
 	PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $ "
 else
@@ -77,22 +76,8 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -114,9 +99,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 export EDITOR=vim
 source ~/.bin/tmuxinator.bash
 
@@ -129,9 +111,6 @@ export MAVEN_OPTS="-Xms256m -Xmx512m"
 # Java
 export JAVA_HOME="/opt/oracle/java/jdk1.8.0_25/"
 export PATH="$PATH:$JAVA_HOME/bin"
-
-# RVM
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Hbase
 export HBASE_HOME="$HOME/workspace/test/hbase-0.99.1"
@@ -148,3 +127,5 @@ nvm use stable
 #export NODE_PATH=:/home/roman/npm/lib/node_modules
 
 source ~/.bash-git-prompt/gitprompt.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

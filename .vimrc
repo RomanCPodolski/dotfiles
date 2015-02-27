@@ -5,8 +5,8 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let vundle manage itself
-Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim' " let vundle manage itself
+
 " airline for vim
 Bundle 'bling/vim-airline'
 " a git wrapper so awsome, is should be illegal
@@ -57,8 +57,14 @@ Bundle 'wavded/vim-stylus'
 Bundle 'digitaltoad/vim-jade'
 " Gundo is a plugin to visualize vims undo tree.
 Bundle 'sjl/gundo.vim'
-" Trac integration for vim
-Bundle 'mjbrownie/Trac.vim'
+" Snippets Engine
+Bundle 'SirVer/ultisnips'
+" Snippets
+Bundle 'honza/vim-snippets'
+" visualize line indentions
+Bundle 'Yggdroot/indentLine'
+" ag vim
+Bundle 'rking/ag.vim'
 filetype plugin indent on
 
 call vundle#end()            " required
@@ -143,8 +149,13 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+" Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Edit bashrc
+nnoremap <leader>eb :vsplit ~/.bashrc<cr>
+nnoremap <leader>sb :! source ~/.bashrc<cr>
 " Tab Mappings
 
 nnoremap th  :tabfirst<CR>
@@ -157,6 +168,13 @@ nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 nnoremap to  :tabnew<CR>
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " no ugly line wrap
 set nowrap
