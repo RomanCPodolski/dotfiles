@@ -13,6 +13,7 @@
 !*.tmux.conf
 !.ssh/knownhosts
 !*.zshrc
+!*.zsh_aliases
 
 # ...even if there are in subdirectories
 #!*/
