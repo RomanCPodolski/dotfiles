@@ -5,3 +5,7 @@
 	user = JavaTheHood
 [push]
 	default = simple
+[merge]
+	tool = vimdiff
+[core]
+	editor = vim

@@ -2,18 +2,18 @@
 *
 
 # But not these files...
-!*.vimrc
-!*.vim
-!*.bashrc
-!*.bash_aliases
-!*.gitignore
-!*.gitconfig
-!.tmuxinator/lmu_personal_db.yml
-!.tmuxinator/idgard-frontend.yml
-!*.tmux.conf
-!.ssh/knownhosts
-!*.zshrc
-!*.zsh_aliases
+!/.vimrc
+#!/.vim
+!/.bashrc
+!/.bash_aliases
+!/.gitignore
+!/.gitconfig
+!/tmuxinator/lmu_personal_db.yml
+!/tmuxinator/idgard-frontend.yml
+!/.tmux.conf
+!/ssh/knownhosts
+!/.zshrc
+!/.zsh_aliases
 
 # ...even if there are in subdirectories
 #!*/

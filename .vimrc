@@ -156,6 +156,11 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Edit bashrc
 nnoremap <leader>eb :vsplit ~/.bashrc<cr>
 nnoremap <leader>sb :! source ~/.bashrc<cr>
+" Edit zshrc
+nnoremap <leader>ez :vsplit ~/.zshrc<CR>
+nnoremap <leader>sz :! source ~/.zshrc<CR>
+" Edit  .gitignore
+"nnoremap <leader>egi :vsplit :pwd/.gitignore<CR>
 " Tab Mappings
 
 nnoremap th  :tabfirst<CR>
