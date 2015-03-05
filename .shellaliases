@@ -27,7 +27,6 @@ alias to.devapps='cd ${MYDEVAPPS}'
 alias aq=aquamacs
 alias g=git
 
-
 #############################
 # Utilities
 
@@ -87,3 +86,6 @@ alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -
 # node.js + io.js
 alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
 alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
+
+# 'cause I am funny
+alias fucking='sudo'
