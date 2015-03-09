@@ -34,6 +34,3 @@ Plugins managed with the awsome Vundle.vim (https://github.com/gmarik/Vundle.vim
 * vim-snippets (https://github.com/honza/vim-snippets)
 * indentLine (https://github.com/Yggdroot/indentLine)
 * ag.vim (https://github.com/rking/ag.vim)
-
-
-
