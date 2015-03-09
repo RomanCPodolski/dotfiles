@@ -1,7 +1,7 @@
 # ~/.tmuxinator/idgard-ui.yml
 
 name: idgard-frontend
-root: ~/workspace/idg-frontend
+root: ~/Workspace/idg-frontend
 
 # Optional tmux socket
 # socket_name: foo
@@ -20,4 +20,4 @@ root: ~/workspace/idg-frontend
 
 windows:
   - editor: vim +BundleUpdate +q +NERDTree
-  - gulp: gulp
+  - gulp: gulp webdriverUpdate && gulp
