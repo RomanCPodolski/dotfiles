@@ -27,7 +27,6 @@ alias to.devapps='cd ${MYDEVAPPS}'
 alias aq=aquamacs
 alias g=git
 
-
 #############################
 # Utilities
 
@@ -89,6 +88,12 @@ alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -
 alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
 alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
 
+<<<<<<< HEAD
+# 'cause I am funny
+alias fucking='sudo'
+alias bi='bower install'
+alias ni='npm install'
+=======
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
@@ -118,3 +123,4 @@ alias c="clear"
 alias ni="npm install"
 alias bi="bower install"
 
+>>>>>>> 1cbf1de9da63541d86aa9b0d7570359a7f9ddd2c
