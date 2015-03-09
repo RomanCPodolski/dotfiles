@@ -18,3 +18,6 @@ source ~/.shellaliases
 # Private/Proprietary shell aliases (not to be checked into the public repo) :)
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# remap esc to capslock
+xmodmao ~/.speedswrapper
