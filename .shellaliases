@@ -88,39 +88,7 @@ alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -
 alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
 alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
 
-<<<<<<< HEAD
 # 'cause I am funny
 alias fucking='sudo'
 alias bi='bower install'
 alias ni='npm install'
-=======
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# angry admin is angry
-alias fucking='sudo'
-
-alias install='apt-get install'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-alias vi='vim'
-alias vidiff='vimdiff'
-
-alias zshconfig="$EDITOR ~/.zshrc"
-alias addalias="$EDITOR ~/.shellaliases"
-alias c="clear"
-alias ni="npm install"
-alias bi="bower install"
-
->>>>>>> 1cbf1de9da63541d86aa9b0d7570359a7f9ddd2c

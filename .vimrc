@@ -44,12 +44,16 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'aperezdc/vim-template'
 " Tagbar support
 Bundle 'majutsushi/tagbar'
+" Coffeescript support for tagbar
+Bundle 'lukaszkorecki/CoffeeTags'
 " Stylus support
 Bundle 'wavded/vim-stylus'
 " Jade support
 Bundle 'digitaltoad/vim-jade'
 " Gundo is a plugin to visualize vims undo tree.
 Bundle 'sjl/gundo.vim'
+" Supertab
+Bundle 'ervandew/supertab'
 " Snippets Engine
 Bundle 'SirVer/ultisnips'
 " Snippets
@@ -61,19 +65,37 @@ Bundle 'rking/ag.vim'
 
 call vundle#end()         " required
 " =========================================
-" Code Apperance 
+" Vim Apperance / Code Apperance 
 " =========================================
 syntax on                 " Enable syntax highlighting
+set autoindent
 set smartindent           " Smartindent lines
 set tabstop=2             " Set tap stop to 2 withespaces
 set shiftwidth=2          " Set shift wigth to 2 withespaces
 set expandtab             " Expand tabs
+set nowrap                " No Ugly linewrap
+set history=500
+set smartcase
+set showmatch
+set title
+set ruler
+set et
+set number
+set incsearch
+set hlsearch
+set autoread
+set autowrite
+
 filetype plugin indent on " Enable filetype-specific indenting and plugins
+colorscheme darkmate
+let g:airline_theme='luna'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 
 " =========================================
 " Syntastic configuration
 " =========================================
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
@@ -90,11 +112,6 @@ autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
 autocmd BufNewFile,BufRead *.jade set filetype=jade
 
-" =========================================
-" Colorscheme - Vim apperance 
-" =========================================
-colorscheme darkmate
-
 set nu
 
 set wildmode=longest,list,full
@@ -107,20 +124,16 @@ filetype plugin on
 
  syntax on
 
-" Airlinebar config
-let g:airline_theme='luna'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
+" =========================================
+" Custom Mappings 
+" =========================================
 
 nnoremap <F3> :Gstatus<CR>
 nnoremap <F4> :Gdiff <CR>
 nnoremap <F5> :GundoToggle <CR>
 nnoremap <F7> :NERDTreeToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
-
-" inoremap <leader>; <C-o>A;
-
+" Disable Arrow keys 
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -129,21 +142,16 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
-
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
 " Edit bashrc
 nnoremap <leader>eb :vsplit ~/.bashrc<cr>
 nnoremap <leader>sb :! source ~/.bashrc<cr>
 " Edit zshrc
 nnoremap <leader>ez :vsplit ~/.zshrc<CR>
 nnoremap <leader>sz :! source ~/.zshrc<CR>
-" Edit  .gitignore
-"nnoremap <leader>egi :vsplit :pwd/.gitignore<CR>
 " Tab Mappings
-
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
 nnoremap tk  :tabprev<CR>
@@ -154,15 +162,45 @@ nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 nnoremap to  :tabnew<CR>
 
+" =========================================
+" UtilSnips Configurations
+" =========================================
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" Better key bindings for UtilSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" no ugly line wrap
-set nowrap
-
-set history=200
+" =========================================
+" Tagbar configuration (Stolen from
+" https://github.com/tomw42/vimrc/blob/master/.vimrc)
+" =========================================
+"
+let g:tagbar_compact = 1
+let g:tagbar_autofocus = 1
+if executable('coffeetags')
+    let g:tagbar_type_coffee = {
+        \ 'ctagsbin'  : 'coffetags',
+        \ 'ctagsargs' : '',
+        \ 'kinds'     : [
+            \ 'c:classes',
+            \ 'm:methods',
+            \ 'f:functions',
+            \ 'v:variables',
+            \ 'f:fields',
+            \ 'o:object',
+        \ ],
+        \ 'sro': ".",
+        \ 'kind2scope': {
+        \ 'f': 'object',
+        \ 'o': 'object',
+        \ }
+        \ }
+endif
