@@ -1,0 +1,6 @@
+[submodule "SpotifyControl"]
+	path = SpotifyControl
+	url = git@github.com:dronir/SpotifyControl.git
+[submodule "z-zsh"]
+	path = z-zsh
+	url = git@github.com:sjl/z-zsh.git
