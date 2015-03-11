@@ -16,6 +16,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
 " Colortheme Darkmate
 Bundle 'yearofmoo/Vim-Darkmate'
+" Colortheme Solarized
+Bundle 'altercation/vim-colors-solarized'
 " ruby support
 Bundle 'vim-ruby/vim-ruby'
 " Sourround your code
@@ -87,7 +89,17 @@ set autoread
 set autowrite
 
 filetype plugin indent on " Enable filetype-specific indenting and plugins
-colorscheme darkmate
+
+if has('gui_running')
+  set background=light
+  colorscheme solarized
+else
+  "let g:solarized_termcolors=256
+  "set background=dark
+  "colorscheme solarized
+  colorscheme darkmate
+endif
+
 let g:airline_theme='luna'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1

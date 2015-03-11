@@ -165,6 +165,7 @@
 [diff]
 	#tool = myaraxis
 	tool = diffmerge
+	;tool = vimdiff 
 [init]
     templatedir = ~/.dotfiles/.git_template
 [mergetool]
