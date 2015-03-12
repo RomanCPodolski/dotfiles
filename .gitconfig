@@ -1,6 +1,6 @@
 [user]
-	name = Roman Podolski
-	email = roman.podolski89@gmail.com
+	name = Roman C. Podolski
+	email = roman@uniscon.de
 [github]
     # https://github.com/blog/180-local-github-config
     user = JavaTheHood
@@ -164,8 +164,8 @@
 	prompt = false
 [diff]
 	#tool = myaraxis
-	tool = diffmerge
-	;tool = vimdiff 
+	;tool = diffmerge
+	tool = vimdiff 
 [init]
     templatedir = ~/.dotfiles/.git_template
 [mergetool]
