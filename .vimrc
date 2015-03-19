@@ -87,6 +87,7 @@ set incsearch
 set hlsearch
 set autoread
 set autowrite
+set noswapfile " no stupid swp files
 
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
