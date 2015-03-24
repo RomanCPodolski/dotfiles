@@ -1,6 +1,6 @@
 # ~/.tmuxinator/idgard-ui.yml
 
-name: idgard-frontend
+name: idg-frontend
 root: ~/Workspace/idg-frontend
 
 # Optional tmux socket
@@ -19,11 +19,11 @@ pre_window: rvm use ruby-2.2.0
 # tmux_command: byobu
 
 windows:
-  - editor: 
+  - editor: vim +BundleUpdate +q +NERDTree
+  - server: 
       layout: main-vertical
       panes: 
         - gulp: git-up && ni && bi && gulp webdriverUpdate && gulp
-        - vim: vim +BundleUpdate +q +NERDTree
-  - shell: git status 
+        - terminal: git status
   - processes: htop
   - irc: irssi 
