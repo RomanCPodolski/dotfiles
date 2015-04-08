@@ -1,6 +1,5 @@
 # Set Sublime Text as our default command line editor (vi is the default otherwise)
-export EDITOR='subl -w'
-
+export EDITOR='vi'
 
 #########################################################################
 # Temporary aliases useful for demos, other current projects

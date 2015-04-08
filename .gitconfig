@@ -1,9 +1,9 @@
 [user]
 	name = Roman C. Podolski
-	email = roman@uniscon.de
+	email = roman.podolski89@gmail.de
 [github]
     # https://github.com/blog/180-local-github-config
-    user = JavaTheHood
+    user = RomanCPodolski
 
     # in a few months, look into the include directive (after bug fixes)
     token = MOVEALONG

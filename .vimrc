@@ -141,11 +141,11 @@ filetype plugin on
 " Custom Mappings 
 " =========================================
 
-nnoremap <F3> :Gstatus<CR>
-nnoremap <F4> :Gdiff <CR>
-nnoremap <F5> :GundoToggle <CR>
-nnoremap <F7> :NERDTreeToggle<CR>
-nnoremap <F8> :TagbarToggle<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff <CR>
+nnoremap <leader>gu :GundoToggle <CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>tt :TagbarToggle<CR>
 " Disable Arrow keys 
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
