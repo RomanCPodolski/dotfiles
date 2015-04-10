@@ -142,10 +142,10 @@ filetype plugin on
 " =========================================
 
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff <CR>
-nnoremap <leader>gu :GundoToggle <CR>
-nnoremap <leader>nt :NERDTreeToggle<CR>
-nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <C-D> :Gdiff <CR>
+nnoremap <C-U> :GundoToggle <CR>
+nnoremap <C-N> :NERDTreeToggle<CR>
+nnoremap <C-T> :TagbarToggle<CR>
 " Disable Arrow keys 
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
