@@ -64,6 +64,10 @@ Bundle 'honza/vim-snippets'
 Bundle 'Yggdroot/indentLine'
 " ag vim
 Bundle 'rking/ag.vim'
+" Cmake
+Bundle 'jalcine/cmake.vim'
+" Latex
+Bundle 'lervag/vimtex'
 
 call vundle#end()         " required
 " =========================================
