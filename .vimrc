@@ -92,6 +92,8 @@ set hlsearch
 set autoread
 set autowrite
 set noswapfile " no stupid swp files
+set exrc
+set secure
 
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
@@ -119,6 +121,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_coffee_checkers = ['coffeelint']
+let g:syntastiv_cpp_checkers = ['clang_check', 'clang_tidy', 'cpplint', 'cppcheck']
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
 
@@ -186,6 +189,7 @@ nnoremap to  :tabnew<CR>
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 
 " Better key bindings for UtilSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger="<tab>"
