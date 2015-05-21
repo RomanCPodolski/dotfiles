@@ -7,7 +7,7 @@
 
 # RVM suggests using gcc instead of llvm (which Apple now symlinks gcc to)
 #export CC="/usr/bin/gcc-4.8"
-export CFLAGS="-O2 -arch x86_64"
+#export CFLAGS="-O2 -arch x86_64"
 #export LDFLAGS="-L/opt/local/lib"
 #export CPPFLAGS="-I/opt/local/include"
 
@@ -21,3 +21,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # remap esc to capslock
 xmodmap ~/.speedswrapper
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/roman/.gvm/bin/gvm-init.sh" ]] && source "/home/roman/.gvm/bin/gvm-init.sh"

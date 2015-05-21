@@ -45,7 +45,7 @@ ZSH_THEME="amuse"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails ruby bower coffee git-flow nvm npm node rvm tmux tmuxinator ubuntu vi-mode vim-interaction vundle chucknorris)
+plugins=(git rails ruby grails bower coffee git-flow nvm npm node rvm tmux tmuxinator ubuntu vi-mode vim-interaction vundle chucknorris)
 
 # User configuration
 
@@ -80,3 +80,6 @@ source ~/.zsh_aliases
 # 256 colors in terminal
 [[ "$TERM" == "xterm"  ]] && export TERM=xterm-256color
 chuck_cow
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/roman/.gvm/bin/gvm-init.sh" ]] && source "/home/roman/.gvm/bin/gvm-init.sh"

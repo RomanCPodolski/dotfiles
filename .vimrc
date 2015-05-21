@@ -68,6 +68,8 @@ Bundle 'rking/ag.vim'
 Bundle 'jalcine/cmake.vim'
 " Latex
 Bundle 'lervag/vimtex'
+" LISP
+Bundle 'kovisoft/slimv'
 
 call vundle#end()         " required
 " =========================================
@@ -95,6 +97,7 @@ set noswapfile " no stupid swp files
 set exrc
 set secure
 
+
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
 if has('gui_running')
@@ -119,40 +122,25 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_coffee_checkers = ['coffeelint']
-let g:syntastiv_cpp_checkers = ['clang_check', 'clang_tidy', 'cpplint', 'cppcheck']
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
-
-" =========================================
-" Filetypes 
-" =========================================
-autocmd BufNewFile,BufRead *.coffee set filetype=coffee
-autocmd BufNewFile,BufRead *.styl set filetype=stylus
-autocmd BufNewFile,BufRead *.jade set filetype=jade
 
 set nu
 
 set wildmode=longest,list,full
 set wildmenu
 
-filetype plugin on
- set grepprg=grep\ -nH\ $*
- filetype indent on
- let g:tex_flavor='latex'
-
- syntax on
-
 " =========================================
 " Custom Mappings 
 " =========================================
 
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <C-D> :Gdiff <CR>
+nnoremap <leader>gd :Gvdiff <CR>
+nnoremap <leader>gb :Gblame <CR>
 nnoremap <C-U> :GundoToggle <CR>
 nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <C-T> :TagbarToggle<CR>
+
 " Disable Arrow keys 
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -198,30 +186,3 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-
-" =========================================
-" Tagbar configuration (Stolen from
-" https://github.com/tomw42/vimrc/blob/master/.vimrc)
-" =========================================
-"
-let g:tagbar_compact = 1
-let g:tagbar_autofocus = 1
-if executable('coffeetags')
-    let g:tagbar_type_coffee = {
-        \ 'ctagsbin'  : 'coffetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds'     : [
-            \ 'c:classes',
-            \ 'm:methods',
-            \ 'f:functions',
-            \ 'v:variables',
-            \ 'f:fields',
-            \ 'o:object',
-        \ ],
-        \ 'sro': ".",
-        \ 'kind2scope': {
-        \ 'f': 'object',
-        \ 'o': 'object',
-        \ }
-        \ }
-endif
