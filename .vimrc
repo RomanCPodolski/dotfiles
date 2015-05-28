@@ -70,6 +70,7 @@ Bundle 'jalcine/cmake.vim'
 Bundle 'lervag/vimtex'
 " LISP
 Bundle 'kovisoft/slimv'
+Bundle 'takac/vim-spotifysearch'
 
 call vundle#end()         " required
 " =========================================
@@ -78,9 +79,6 @@ call vundle#end()         " required
 syntax on                 " Enable syntax highlighting
 set autoindent
 set smartindent           " Smartindent lines
-set tabstop=2             " Set tap stop to 2 withespaces
-set shiftwidth=2          " Set shift wigth to 2 withespaces
-set expandtab             " Expand tabs
 set nowrap                " No Ugly linewrap
 set history=500
 set smartcase
@@ -97,13 +95,17 @@ set noswapfile " no stupid swp files
 set exrc
 set secure
 
-
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
 let g:airline_theme='luna'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 " =========================================
 " Syntastic configuration
@@ -130,6 +132,11 @@ nnoremap <leader>gb :Gblame <CR>
 nnoremap <C-U> :GundoToggle <CR>
 nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <C-T> :TagbarToggle<CR>
+
+let g:spotify_country_code = 'DE'
+let g:spotify_prev_key = "p"
+let g:spotify_playpause_key = "<space>"
+let g:spotify_next_key = "n"
 
 " Disable Arrow keys 
 inoremap  <Up>     <NOP>
@@ -206,3 +213,8 @@ colorscheme solarized
 " let g:solarized_hitrail=0
 " let g:solarized_menu=1
 
+if has("autocmd")
+  filetype on
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab colorcolumn=80 
+endif
