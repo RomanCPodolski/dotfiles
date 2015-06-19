@@ -87,8 +87,8 @@ set title
 set ruler
 set et
 set number
+set relativenumber
 set incsearch
-set hlsearch
 set autoread
 set autowrite
 set noswapfile " no stupid swp files
