@@ -5,7 +5,7 @@ export ZSH=/home/roman/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="amuse"
+ZSH_THEME=robbyrussell
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -59,9 +59,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='vi'
 else
-  export EDITOR='vim'
+  export EDITOR='vi'
 fi
 
 # Compilation flags
@@ -75,11 +75,12 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-source ~/.zsh_aliases
+#source ~/.shell_aliases
 
 # 256 colors in terminal
 [[ "$TERM" == "xterm"  ]] && export TERM=xterm-256color
-chuck_cow
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/roman/.gvm/bin/gvm-init.sh" ]] && source "/home/roman/.gvm/bin/gvm-init.sh"
+export NVM_DIR="/home/roman/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+chuck_cow

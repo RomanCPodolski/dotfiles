@@ -20,7 +20,7 @@ source ~/.shellaliases
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # remap esc to capslock
-xmodmap ~/.speedswrapper
+#xmodmap ~/.speedwrapper
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/home/roman/.gvm/bin/gvm-init.sh" ]] && source "/home/roman/.gvm/bin/gvm-init.sh"

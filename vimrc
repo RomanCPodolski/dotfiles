@@ -25,6 +25,7 @@ Bundle 'tpope/vim-surround'
 " auto add end keyword to ruby blocks
 Bundle 'tpope/vim-endwise'
 " Autogen pairs
+Bundle 'tpope/vim-repeat'
 Bundle 'jiangmiao/auto-pairs'
 " plugin on GitHub repo
 Bundle 'kchmck/vim-coffee-script'
@@ -42,6 +43,8 @@ Bundle 'valloric/youcompleteme'
 Bundle 'scrooloose/syntastic'
 " Vim Javascript
 Bundle 'pangloss/vim-javascript'
+" vim jasmine
+Bundle 'claco/jasmine.vim'
 " Templates in vim
 Bundle 'aperezdc/vim-template'
 " Tagbar support
@@ -71,6 +74,7 @@ Bundle 'lervag/vimtex'
 " LISP
 Bundle 'kovisoft/slimv'
 Bundle 'takac/vim-spotifysearch'
+Bundle 'rdnetto/ycm-generator'
 
 call vundle#end()         " required
 " =========================================

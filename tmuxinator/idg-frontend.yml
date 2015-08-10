@@ -1,7 +1,7 @@
 # ~/.tmuxinator/idgard-ui.yml
 
 name: idg-frontend
-root: ~/Workspace/idg-frontend
+root: ~/workspace/idg-frontend
 
 # Optional tmux socket
 # socket_name: foo
