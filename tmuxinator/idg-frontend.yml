@@ -10,7 +10,7 @@ root: ~/workspace/idg-frontend
 # pre: git-up
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: rvm use ruby-2.2.0 
+pre_window: rvm use ruby-2.2.1
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -24,6 +24,6 @@ windows:
       layout: main-vertical
       panes: 
         - gulp: git-up && ni && bi && gulp webdriverUpdate && gulp
-        - terminal: git status
+        - terminal: g status
   - processes: htop
   - irc: irssi 

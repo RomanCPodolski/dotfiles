@@ -232,7 +232,6 @@ colorscheme solarized
 if has("autocmd")
   filetype on
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab colorcolumn=80 
   autocmd FileType markdown setlocal spell spelllang=en complete+=kspell
   autocmd FileType latex setlocal spell spelllang=en complete+=kspell
   autocmd FileType gitcommit setlocal spell spelllang=en complete+=kspell
