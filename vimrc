@@ -168,6 +168,10 @@ nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 nnoremap to  :tabnew<CR>
 
+" new commands
+" write to readonly file
+cnoremap sudow w !sudo tee % >/dev/null
+
 " =========================================
 " UtilSnips Configurations
 " =========================================
