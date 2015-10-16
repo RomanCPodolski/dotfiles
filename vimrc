@@ -12,10 +12,6 @@ Plugin 'gmarik/Vundle.vim' " let vundle manage itself
 Bundle 'bling/vim-airline'
 " a git wrapper so awsome, is should be illegal
 Bundle 'tpope/vim-fugitive'
-" vim rails
-Bundle 'tpope/vim-rails.git'
-" Colortheme Darkmate
-Bundle 'yearofmoo/Vim-Darkmate'
 " Colortheme Solarized
 Bundle 'altercation/vim-colors-solarized'
 " ruby support
@@ -26,11 +22,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 " Autogen pairs
 Bundle 'tpope/vim-repeat'
+" Auto pairs
 Bundle 'jiangmiao/auto-pairs'
-" plugin on GitHub repo
-Bundle 'kchmck/vim-coffee-script'
-" Editor Config
-Bundle 'editorconfig/editorconfig-vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " file tree
@@ -41,20 +34,10 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'valloric/youcompleteme'
 " syntax checking
 Bundle 'scrooloose/syntastic'
-" Vim Javascript
-Bundle 'pangloss/vim-javascript'
-" vim jasmine
-Bundle 'claco/jasmine.vim'
 " Templates in vim
 Bundle 'aperezdc/vim-template'
 " Tagbar support
 Bundle 'majutsushi/tagbar'
-" Coffeescript support for tagbar
-Bundle 'lukaszkorecki/CoffeeTags'
-" Stylus support
-Bundle 'wavded/vim-stylus'
-" Jade support
-Bundle 'digitaltoad/vim-jade'
 " Gundo is a plugin to visualize vims undo tree.
 Bundle 'sjl/gundo.vim'
 " Supertab
@@ -71,9 +54,6 @@ Bundle 'rking/ag.vim'
 Bundle 'jalcine/cmake.vim'
 " Latex
 Bundle 'lervag/vimtex'
-" LISP
-Bundle 'kovisoft/slimv'
-Bundle 'takac/vim-spotifysearch'
 Bundle 'rdnetto/ycm-generator'
 Bundle 'jeaye/color_coded'
 
