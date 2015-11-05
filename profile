@@ -17,10 +17,4 @@ source ~/.shellpaths
 source ~/.shellaliases
 # Private/Proprietary shell aliases (not to be checked into the public repo) :)
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# remap esc to capslock
-#xmodmap ~/.speedwrapper
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/roman/.gvm/bin/gvm-init.sh" ]] && source "/home/roman/.gvm/bin/gvm-init.sh"
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

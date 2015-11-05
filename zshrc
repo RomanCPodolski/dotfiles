@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/roman/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -13,8 +13,7 @@ ZSH_THEME=robbyrussell
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# Uncomment the following line to change how often to auto-update (in days).  # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -45,11 +44,11 @@ ZSH_THEME=robbyrussell
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails ruby grails bower coffee git-flow nvm npm node rvm tmux tmuxinator ubuntu vi-mode vim-interaction vundle chucknorris)
+plugins=(git ruby git-flow rvm tmux tmuxinator vundle)
 
 # User configuration
 
-export PATH="/home/roman/.nvm/versions/node/v0.12.0/bin:/home/roman/.rvm/gems/ruby-2.2.0/bin:/home/roman/.rvm/gems/ruby-2.2.0@global/bin:/home/roman/.rvm/rubies/ruby-2.2.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/apache-maven/apache-maven-3.2.3/bin:/opt/oracle/java/jdk1.8.0_25//bin:/home/roman/.rvm/bin:/home/roman/.rvm/bin:/home/roman/.rvm/bin:/usr/local/apache-maven/apache-maven-3.2.3/bin:/opt/oracle/java/jdk1.8.0_25//bin:/home/roman/workspace/test/hbase-0.99.1/bin:/home/roman/.rvm/bin"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -61,7 +60,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vi'
 else
-  export EDITOR='vi'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -79,8 +78,3 @@ fi
 
 # 256 colors in terminal
 [[ "$TERM" == "xterm"  ]] && export TERM=xterm-256color
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-export NVM_DIR="/home/roman/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-chuck_cow

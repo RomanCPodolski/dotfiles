@@ -8,73 +8,33 @@ call vundle#begin()
 " Plugins 
 " =========================================
 Plugin 'gmarik/Vundle.vim' " let vundle manage itself
-" airline for vim
-Bundle 'bling/vim-airline'
-" a git wrapper so awsome, is should be illegal
-Bundle 'tpope/vim-fugitive'
-" vim rails
-Bundle 'tpope/vim-rails.git'
-" Colortheme Darkmate
-Bundle 'yearofmoo/Vim-Darkmate'
-" Colortheme Solarized
-Bundle 'altercation/vim-colors-solarized'
-" ruby support
-Bundle 'vim-ruby/vim-ruby'
-" Sourround your code
-Bundle 'tpope/vim-surround'
-" auto add end keyword to ruby blocks
-Bundle 'tpope/vim-endwise'
-" Autogen pairs
-Bundle 'tpope/vim-repeat'
-Bundle 'jiangmiao/auto-pairs'
-" plugin on GitHub repo
-Bundle 'kchmck/vim-coffee-script'
-" Editor Config
-Bundle 'editorconfig/editorconfig-vim'
-" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'encomba/vim-ruby-refactoring'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-repeat'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'L9'
-" file tree
-Bundle 'scrooloose/nerdtree'
-" commenting code
-Bundle 'scrooloose/nerdcommenter'
-" code completeion
-Bundle 'valloric/youcompleteme'
-" syntax checking
-Bundle 'scrooloose/syntastic'
-" Vim Javascript
-Bundle 'pangloss/vim-javascript'
-" vim jasmine
-Bundle 'claco/jasmine.vim'
-" Templates in vim
-Bundle 'aperezdc/vim-template'
-" Tagbar support
-Bundle 'majutsushi/tagbar'
-" Coffeescript support for tagbar
-Bundle 'lukaszkorecki/CoffeeTags'
-" Stylus support
-Bundle 'wavded/vim-stylus'
-" Jade support
-Bundle 'digitaltoad/vim-jade'
-" Gundo is a plugin to visualize vims undo tree.
-Bundle 'sjl/gundo.vim'
-" Supertab
-Bundle 'ervandew/supertab'
-" Snippets Engine
-Bundle 'SirVer/ultisnips'
-" Snippets
-Bundle 'honza/vim-snippets'
-" visualize line indentions
-Bundle 'Yggdroot/indentLine'
-" ag vim
-Bundle 'rking/ag.vim'
-" Cmake
-Bundle 'jalcine/cmake.vim'
-" Latex
-Bundle 'lervag/vimtex'
-" LISP
-Bundle 'kovisoft/slimv'
-Bundle 'takac/vim-spotifysearch'
-Bundle 'rdnetto/ycm-generator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'valloric/youcompleteme'
+Plugin 'scrooloose/syntastic'
+Plugin 'aperezdc/vim-template'
+Plugin 'majutsushi/tagbar'
+Plugin 'sjl/gundo.vim'
+Plugin 'ervandew/supertab'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Yggdroot/indentLine'
+Plugin 'rking/ag.vim'
+Plugin 'jalcine/cmake.vim'
+Plugin 'rdnetto/ycm-generator'
 
 call vundle#end()         " required
 " =========================================
@@ -133,8 +93,7 @@ set wildmenu
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gvdiff <CR>
 nnoremap <leader>gb :Gblame <CR>
-" reload buffer
-nnoremap <leader>r :edit!<CR>
+
 " set spellchecking
 nnoremap <leader>sc :setlocal spell<cr>
 nnoremap <C-U> :GundoToggle <CR>
@@ -150,13 +109,14 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
 " Edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+map <leader>ev :vsplit $MYVIMRC<cr>
+map <leader>sv :source $MYVIMRC<cr>
 
 " Edit zshrc
-nnoremap <leader>ez :vsplit ~/.zshrc<CR>
-nnoremap <leader>sz :! source ~/.zshrc<CR>
+map <leader>ez :vsplit ~/.zshrc<CR>
+map <leader>sz :! source ~/.zshrc<CR>
 " Tab Mappings
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
@@ -168,6 +128,11 @@ nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 nnoremap to  :tabnew<CR>
 
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 " new commands
 " write to readonly file
 cnoremap sudow w !sudo tee % >/dev/null
@@ -182,7 +147,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 
 " Better key bindings for UtilSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
@@ -224,4 +189,6 @@ if has("autocmd")
   autocmd FileType markdown setlocal spell spelllang=en complete+=kspell
   autocmd FileType latex setlocal spell spelllang=en complete+=kspell
   autocmd FileType gitcommit setlocal spell spelllang=en complete+=kspell
+  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType ruby nnoremap <leader>r !ruby %<cr>
 endif

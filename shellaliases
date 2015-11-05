@@ -90,10 +90,4 @@ alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
 
 # 'cause I am funny
 alias fucking='sudo'
-alias bi='bower install'
-alias ni='npm install'
 alias c='clear'
-# vim
-alias vi='vimdiff'
-alias vidiff='vimdiff'
-alias spotify='osascript ~/.dotfiles/SpotifyControl/SpotifyControl.scpt'
