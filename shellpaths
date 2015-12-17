@@ -21,9 +21,8 @@ export PATH=/usr/local/bin:$PATH
 #Chef
 export PATH=$PATH:/opt/chef/bin:/opt/chef/embedded/bin
 
-#Zend
-#export PATH=$PATH:/usr/local/zend/bin
-#export PATH=$PATH:/usr/local/zend/mysql/bin
-
 # NPM
 export PATH=$PATH:~/.npm/
+
+# RVM
+export PATH=$HOME/.rvm/bin:$PATH: # Add RVM to PATH for scripting

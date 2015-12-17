@@ -19,7 +19,7 @@ pre_window: rvm use ruby-2.2.0
 # tmux_command: byobu
 
 windows:
-  - editor: vim +BundleUpdate +q +NERDTree
+  - editor: vi +BundleUpdate +q +NERDTree
   - server: 
       layout: main-vertical
       panes: 
