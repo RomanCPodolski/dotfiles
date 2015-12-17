@@ -178,7 +178,7 @@
 	trustExitCode = true
 
 [merge]
-	tool = diffmerge
+	tool = vimdiff
 	# Always show a diffstat at the end of a merge
 	stat = true
 

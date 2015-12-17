@@ -35,6 +35,8 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'rking/ag.vim'
 Plugin 'jalcine/cmake.vim'
 Plugin 'rdnetto/ycm-generator'
+Plugin 'ngmy/vim-rubocop'
+"Plugin 'sentientmonkey/vim-flog'
 
 call vundle#end()         " required
 " =========================================
@@ -77,7 +79,6 @@ set guioptions-=L
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
 
@@ -93,6 +94,8 @@ set wildmenu
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gvdiff <CR>
 nnoremap <leader>gb :Gblame <CR>
+
+nnoremap <leader>ru :RuboCop <CR>
 
 " set spellchecking
 nnoremap <leader>sc :setlocal spell<cr>
@@ -128,6 +131,11 @@ nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 nnoremap to  :tabnew<CR>
 
+"shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -189,6 +197,6 @@ if has("autocmd")
   autocmd FileType markdown setlocal spell spelllang=en complete+=kspell
   autocmd FileType latex setlocal spell spelllang=en complete+=kspell
   autocmd FileType gitcommit setlocal spell spelllang=en complete+=kspell
-  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab colorcolumn=80
   autocmd FileType ruby nnoremap <leader>r !ruby %<cr>
 endif
