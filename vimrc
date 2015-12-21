@@ -8,54 +8,35 @@ call vundle#begin()
 " Plugins 
 " =========================================
 Plugin 'gmarik/Vundle.vim' " let vundle manage itself
-" airline for vim
-Bundle 'bling/vim-airline'
-" a git wrapper so awsome, is should be illegal
-Bundle 'tpope/vim-fugitive'
-" Colortheme Solarized
-Bundle 'altercation/vim-colors-solarized'
-" ruby support
-Bundle 'vim-ruby/vim-ruby'
-" Sourround your code
-Bundle 'tpope/vim-surround'
-" auto add end keyword to ruby blocks
-Bundle 'tpope/vim-endwise'
-" Autogen pairs
-Bundle 'tpope/vim-repeat'
-" Auto pairs
-Bundle 'jiangmiao/auto-pairs'
-" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'wellsjo/wellsokai.vim'
+Plugin 'yearofmoo/Vim-Darkmate'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-repeat'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'L9'
-" file tree
-Bundle 'scrooloose/nerdtree'
-" commenting code
-Bundle 'scrooloose/nerdcommenter'
-" code completeion
-Bundle 'valloric/youcompleteme'
-" syntax checking
-Bundle 'scrooloose/syntastic'
-" Templates in vim
-Bundle 'aperezdc/vim-template'
-" Tagbar support
-Bundle 'majutsushi/tagbar'
-" Gundo is a plugin to visualize vims undo tree.
-Bundle 'sjl/gundo.vim'
-" Supertab
-Bundle 'ervandew/supertab'
-" Snippets Engine
-Bundle 'SirVer/ultisnips'
-" Snippets
-Bundle 'honza/vim-snippets'
-" visualize line indentions
-Bundle 'Yggdroot/indentLine'
-" ag vim
-Bundle 'rking/ag.vim'
-" Cmake
-Bundle 'jalcine/cmake.vim'
-" Latex
-Bundle 'lervag/vimtex'
-Bundle 'rdnetto/ycm-generator'
-Bundle 'jeaye/color_coded'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'valloric/youcompleteme'
+Plugin 'scrooloose/syntastic'
+Plugin 'aperezdc/vim-template'
+Plugin 'majutsushi/tagbar'
+Plugin 'sjl/gundo.vim'
+Plugin 'ervandew/supertab'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Yggdroot/indentLine'
+Plugin 'rking/ag.vim'
+Plugin 'jalcine/cmake.vim'
+Plugin 'lervag/vimtex'
+Plugin 'rdnetto/ycm-generator'
+Plugin 'jeaye/color_coded'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 call vundle#end()         " required
 " =========================================
@@ -189,10 +170,11 @@ let g:UltiSnipsEditSplit="vertical"
 " ------------------------------------------------------------------
 " Solarized Colorscheme Config
 " ------------------------------------------------------------------
-let g:solarized_termcolors=256    "default value is 16
-syntax enable
-set background=dark
-colorscheme solarized
+"let g:solarized_termcolors=256    "default value is 16
+"syntax enable
+"set background=dark
+"colorscheme solarized
+colorscheme wellsokai
 " ------------------------------------------------------------------
 
 " The following items are available options, but do not need to be
