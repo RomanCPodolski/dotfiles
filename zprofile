@@ -17,9 +17,9 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 ##############################################################################
 # z-zsh setup
 ##############################################################################
-. ~/.dotfiles/z-zsh/z.sh
+. ~/dotfiles/z-zsh/z.sh
 function precmd () {
   z --add "$(pwd -P)"
 }
 
-eval `/usr/libexec/path_helper -s`
+#eval `/usr/libexec/path_helper -s`
