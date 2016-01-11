@@ -1,44 +1,42 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 " =========================================
 " Plugins 
 " =========================================
-Plugin 'gmarik/Vundle.vim' " let vundle manage itself
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'wellsjo/wellsokai.vim'
-Plugin 'yearofmoo/Vim-Darkmate'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-repeat'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'L9'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'valloric/youcompleteme'
-Plugin 'scrooloose/syntastic'
-Plugin 'aperezdc/vim-template'
-Plugin 'majutsushi/tagbar'
-Plugin 'sjl/gundo.vim'
-Plugin 'ervandew/supertab'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'Yggdroot/indentLine'
-Plugin 'rking/ag.vim'
-Plugin 'jalcine/cmake.vim'
-Plugin 'lervag/vimtex'
-Plugin 'rdnetto/ycm-generator'
-Plugin 'jeaye/color_coded'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'altercation/vim-colors-solarized'
+Plug 'wellsjo/wellsokai.vim'
+Plug 'yearofmoo/Vim-Darkmate'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
+Plug 'jiangmiao/auto-pairs'
+Plug 'L9'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'valloric/youcompleteme'
+Plug 'scrooloose/syntastic'
+Plug 'aperezdc/vim-template'
+Plug 'majutsushi/tagbar'
+Plug 'sjl/gundo.vim'
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Yggdroot/indentLine'
+Plug 'rking/ag.vim'
+Plug 'jalcine/cmake.vim'
+Plug 'lervag/vimtex'
+Plug 'rdnetto/ycm-generator'
+Plug 'jeaye/color_coded'
+Plug 'ngmy/vim-rubocop'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
-call vundle#end()         " required
+call plug#end()
+
 " =========================================
 " Vim Apperance / Code Apperance 
 " =========================================
