@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'L9'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
@@ -21,15 +22,20 @@ Plug 'ervandew/supertab'
 Plug 'Yggdroot/indentLine'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
 " colorschemes
-"Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 Plug 'wellsjo/wellsokai.vim'
-"Plug 'yearofmoo/Vim-Darkmate'
+Plug 'yearofmoo/Vim-Darkmate'
 " ruby plugins
 Plug 'tpope/vim-endwise', {'for' : 'ruby'}
 Plug 'ngmy/vim-rubocop', {'for' : 'ruby'}
 Plug 'vim-ruby/vim-ruby', {'for' : 'ruby'}
-Plug 'skalnik/vim-vroom', {'for' : 'ruby'}
+Plug 'benmills/vimux' | Plug 'skalnik/vim-vroom', {'for' : 'ruby'}
+Plug 'danchoi/ri.vim', {'for' : 'ruby'}
+Plug 'astashov/vim-ruby-debugger', {'for' : 'ruby'}
+" python plugins
+Plug 'fs111/pydoc.vim', {'for' : 'python'}
 Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
 Plug 'jalcine/cmake.vim', {'for' : 'cmake'}
 Plug 'lervag/vimtex', {'for' : 'tex'}
@@ -61,9 +67,12 @@ set secure
 
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
-let g:airline_theme='luna'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
 set laststatus=2
 
 set guioptions-=m
@@ -79,6 +88,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
+"let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop', 'reek', 'flog']
+let g:syntastic_ruby_checkers = [ 'rubocop']
+let g:syntastic_python_checkers = ['pylint']
 
 set nu
 
@@ -88,6 +100,13 @@ set wildmenu
 " =========================================
 " Custom Mappings 
 " =========================================
+
+
+
+let g:ri_no_mappings=1
+nnoremap  ,ri :call ri#OpenSearchPrompt(0)<cr> " horizontal split
+nnoremap  ,RI :call ri#OpenSearchPrompt(1)<cr> " vertical split
+nnoremap  ,RK :call ri#LookupNameUnderCursor()<cr> " keyword lookup
 
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gvdiff <CR>
@@ -146,6 +165,7 @@ let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+let g:ycm_python_binary_path = "/usr/bin/python"
 
 " Better key bindings for UtilSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger='<tab>'
@@ -167,7 +187,8 @@ let g:UltiSnipsEditSplit="vertical"
 "syntax enable
 "set background=dark
 "colorscheme solarized
-colorscheme wellsokai
+"colorscheme wellsokai
+colorscheme darkmate
 " ------------------------------------------------------------------
 
 " The following items are available options, but do not need to be
@@ -191,5 +212,6 @@ if has("autocmd")
   autocmd FileType latex setlocal spell spelllang=en complete+=kspell
   autocmd FileType gitcommit setlocal spell spelllang=en complete+=kspell
   autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab colorcolumn=80
-  autocmd FileType ruby nnoremap <leader>r !ruby %<cr>
+  autocmd FileType ruby let g:vroom_use_vimux=1
+  autocmd FileType ruby let g:vroom_use_bundle_exec=1
 endif
