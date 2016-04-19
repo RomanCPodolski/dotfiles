@@ -89,8 +89,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
 let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop', 'reek', 'flog']
-" let g:syntastic_ruby_checkers = [ 'rubocop']
 let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop', 'reek', 'flog']
 
 set nu
 
@@ -101,12 +101,6 @@ set wildmenu
 " Custom Mappings 
 " =========================================
 
-
-
-let g:ri_no_mappings=1
-nnoremap  ,ri :call ri#OpenSearchPrompt(0)<cr> " horizontal split
-nnoremap  ,RI :call ri#OpenSearchPrompt(1)<cr> " vertical split
-nnoremap  ,RK :call ri#LookupNameUnderCursor()<cr> " keyword lookup
 
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gvdiff <CR>

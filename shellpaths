@@ -27,7 +27,7 @@ export PATH=$PATH:/opt/chef/bin:/opt/chef/embedded/bin
 #export PATH=$PATH:~/.npm/
 # Anaconda
 export PATH="$PATH:$HOME/anaconda/bin"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/anaconda2/bin:$PATH"
 
 export rvmsudo_secure_path=0
 export PATH=$PATH:/opt/t32/bin/pc_linux64
@@ -35,3 +35,6 @@ export PATH=$PATH:/opt/t32/bin/pc_linux64
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
+export PATH="$PATH:$HOME/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

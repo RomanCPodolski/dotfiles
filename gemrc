@@ -6,5 +6,6 @@ update: --env-shebang
 :benchmark: false
 :sources: 
 - http://gems.rubyforge.org/
+- http://gemserver:9292
 install: --env-shebang
 :update_sources: true
