@@ -88,8 +88,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
-"let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop', 'reek', 'flog']
-let g:syntastic_ruby_checkers = [ 'rubocop']
+let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop', 'reek', 'flog']
+" let g:syntastic_ruby_checkers = [ 'rubocop']
 let g:syntastic_python_checkers = ['pylint']
 
 set nu
@@ -194,16 +194,16 @@ colorscheme darkmate
 " The following items are available options, but do not need to be
 " included in your .vimrc as they are currently set to their defaults.
 
-" let g:solarized_termtrans=0
-" let g:solarized_degrade=0
-" let g:solarized_bold=1
-" let g:solarized_underline=1
-" let g:solarized_italic=1
-" let g:solarized_contrast="normal"
-" let g:solarized_visibility="normal"
-" let g:solarized_diffmode="normal"
-" let g:solarized_hitrail=0
-" let g:solarized_menu=1
+"let g:solarized_termtrans=0
+"let g:solarized_degrade=0
+"let g:solarized_bold=1
+"let g:solarized_underline=1
+"let g:solarized_italic=1
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
+"let g:solarized_diffmode="normal"
+"let g:solarized_hitrail=0
+"let g:solarized_menu=1
 
 if has("autocmd")
   filetype on

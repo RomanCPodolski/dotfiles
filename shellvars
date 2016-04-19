@@ -27,3 +27,7 @@ export T32TMP=/tmp
 export T32ID=T32
 
 export ADOBE_PATH=/opt/Adobe/Reader9
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
