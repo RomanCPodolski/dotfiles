@@ -27,6 +27,7 @@ export PATH=$PATH:/opt/chef/bin:/opt/chef/embedded/bin
 #export PATH=$PATH:~/.npm/
 # Anaconda
 export PATH="$PATH:$HOME/anaconda/bin"
+export PATH="$HOME/anaconda2/bin:$PATH"
 
 export rvmsudo_secure_path=0
 export PATH=$PATH:/opt/t32/bin/pc_linux64
