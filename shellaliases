@@ -3,6 +3,11 @@
 #########################################
 # Connectivity
 #alias ssh.host ='ssh user@host.net'
+alias ssh.lrz='ssh -X lrz'
+alias ssh.tesla='ssh root@tesla'
+#########################################
+# Tmux control
+alias tmx.roman='$(tmux attach-session -t roman || tmux new-session -s roman)'
 
 #########################################
 # Commands to run apps

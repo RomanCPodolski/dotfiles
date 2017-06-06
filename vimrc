@@ -36,11 +36,16 @@ Plug 'danchoi/ri.vim', {'for' : 'ruby'}
 Plug 'astashov/vim-ruby-debugger', {'for' : 'ruby'}
 " python plugins
 Plug 'fs111/pydoc.vim', {'for' : 'python'}
+Plug 'klen/python-mode', {'for' : 'python'}
 Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
 Plug 'jalcine/cmake.vim', {'for' : 'cmake'}
 Plug 'lervag/vimtex', {'for' : 'tex'}
+Plug 'DamienCassou/textlint', {'for' : 'tex'}
+Plug 'beloglazov/vim-online-thesaurus'
 Plug 'rdnetto/ycm-generator', {'branch' : 'stable', 'for' : 'cpp'}
 Plug 'JamshedVesuna/vim-markdown-preview', {'for' : 'markdown'}
+Plug 'daeyun/vim-matlab', {'for' : 'matlab'}
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " =========================================
@@ -83,14 +88,17 @@ set guioptions-=L
 " =========================================
 " Syntastic configuration
 " =========================================
+"let g:syntastic_python_python_exec = '/Users/romancpodolski/anaconda/bin/python'
 let g:syntastic_always_populate_loc_list = 1
+
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
-let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop', 'reek', 'flog']
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_ruby_checkers = ['mri', 'rubocop', 'reek', 'flog']
+
+let g:syntastic_python_checkers = ['python', 'pylint','pyflakes', 'pep8']
+let g:syntastic_cpp_checkers = ['cpplint', 'gcc']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
 
 set nu
 
@@ -158,8 +166,11 @@ cnoremap sudow w !sudo tee % >/dev/null
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
-let g:ycm_python_binary_path = "/usr/bin/python"
+"let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+"let g:ycm_python_binary_path = '/usr/bin/python'
+"let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+
+"let g:python_host_prog = '/usr/bin/python'
 
 " Better key bindings for UtilSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger='<tab>'
@@ -201,6 +212,7 @@ colorscheme darkmate
 
 if has("autocmd")
   filetype on
+  autocmd FileType matlab setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType markdown setlocal spell spelllang=en complete+=kspell
   autocmd FileType latex setlocal spell spelllang=en complete+=kspell
@@ -208,4 +220,5 @@ if has("autocmd")
   autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab colorcolumn=80
   autocmd FileType ruby let g:vroom_use_vimux=1
   autocmd FileType ruby let g:vroom_use_bundle_exec=1
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab colorcolumn=80
 endif

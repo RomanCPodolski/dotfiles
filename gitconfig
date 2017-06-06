@@ -51,7 +51,7 @@
 	safecrlf = warn
 	# prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
 	#safecrlf = true
-	editor = vi
+	editor = nvim
 	#editor = subl -w
 
 [alias]
@@ -71,10 +71,11 @@
 	dw = diff --word-diff
 	dcw = diff --color-words
 	dm = !git diff | subl
-	dv = !git diff | vim
+	dv = !git diff | nvim
 	who = shortlog -s --
 	ph = push
 	pl = pull
+	plr = pull --rebase
 	lp = log -p
 	lod = log --oneline --decorate
 	lg = log --graph
