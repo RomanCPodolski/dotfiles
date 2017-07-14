@@ -8,9 +8,6 @@
 # RVM suggests using gcc instead of llvm (which Apple now symlinks gcc to)
 #export CC="/usr/bin/gcc-4.8"
 #export CXX="/usr/bin/gcc-4.8"
-#export CFLAGS="-O2 -arch x86_64"
-#export LDFLAGS="-L/opt/local/lib"
-#export CPPFLAGS="-I/opt/local/include"
 
 source ~/.shellvars
 source ~/.shellfn
