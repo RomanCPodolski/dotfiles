@@ -1,0 +1,9 @@
+session_name: brain
+windows:
+        - windows_name: editor
+          layout: tiled
+          shell_command_before:
+                  - to.brain
+          panes:
+            - shell_command:
+                    - nvim

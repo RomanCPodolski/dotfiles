@@ -1,6 +1,6 @@
 [user]
 	name = Roman C. Podolski
-	email = roman.podolski@esrlabs.com
+	email = roman.podolski@tum.de
 [github]
     # https://github.com/blog/180-local-github-config
     user = RomanCPodolski
@@ -166,7 +166,7 @@
 [diff]
 	#tool = myaraxis
 	;tool = diffmerge
-	tool = vimdiff 
+	tool = vimdiff
 [init]
     templatedir = ~/.git_template
 [mergetool]

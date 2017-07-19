@@ -1,0 +1,20 @@
+session_name: master-thesis
+windows:
+        - window_name: editor
+          shell_command_before:
+                  - to.thesis/high-dev-automotive-enviroment-mapping
+          shell_command:
+                  - nvim
+        - window_name: git
+          shell_command_before:
+                  - to.thesis/high-dev-automotive-enviroment-mapping
+          shell_command:
+                  - git stash
+                  - git pull
+                  - git stash apply
+                  - g log
+        - window_name: latexmk
+          shell_command_before:
+                  - to.thesis/high-dev-automotive-enviroment-mapping
+          shell_command:
+                  - latexmk -pdf main.tex

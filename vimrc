@@ -3,7 +3,7 @@ filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
 " =========================================
-" Plugins 
+" Plugins
 " =========================================
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -39,14 +39,11 @@ Plug 'jalcine/cmake.vim', {'for' : 'cmake'}
 Plug 'lervag/vimtex', {'for' : 'tex'}
 Plug 'DamienCassou/textlint', {'for' : 'tex'}
 Plug 'beloglazov/vim-online-thesaurus'
-Plug 'rdnetto/ycm-generator', {'branch' : 'stable', 'for' : 'cpp'}
-Plug 'JamshedVesuna/vim-markdown-preview', {'for' : 'markdown'}
-Plug 'daeyun/vim-matlab', {'for' : 'matlab'}
 Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " =========================================
-" Vim Apperance / Code Apperance 
+" Vim Apperance / Code Apperance
 " =========================================
 syntax on                 " Enable syntax highlighting
 set autoindent
@@ -97,13 +94,17 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
 
+let g:syntastic_python_checkers = ['python', 'pylint', 'pyflakes', 'pep8']
+let g:syntastic_cpp_checkers = ['cpplint', 'cppcheck', 'gcc']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+
 set nu
 
 set wildmode=longest,list,full
 set wildmenu
 
 " =========================================
-" Custom Mappings 
+" Custom Mappings
 " =========================================
 
 
@@ -111,15 +112,13 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gvdiff <CR>
 nnoremap <leader>gb :Gblame <CR>
 
-nnoremap <leader>ru :RuboCop <CR>
-
 " set spellchecking
 nnoremap <leader>sc :setlocal spell<cr>
 nnoremap <C-U> :GundoToggle <CR>
 nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <C-T> :TagbarToggle<CR>
 
-" Disable Arrow keys 
+" Disable Arrow keys
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -158,12 +157,19 @@ set lcs=tab:▸\ ,eol:¬
 cnoremap sudow w !sudo tee % >/dev/null
 
 " =========================================
+" vimtex configurations
+" =========================================
+let g:vimtex_view_method = 'skim'
+" =========================================
 " UtilSnips Configurations
 " =========================================
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+nnoremap gt :YcmCompleter GoTo<CR>
 "let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_python_binary_path = "/usr/bin/python"
 
@@ -218,12 +224,15 @@ augroup END
 
 if has("autocmd")
   filetype on
-  autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 expandtab colorcolumn=80
-  autocmd FileType matlab setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType c,cpp,objc setlocal ts=2 sts=2 sw=2 expandtab colorcolumn=80
+  autocmd FileType c,cpp,objc ClangFormatAutoEnable
+  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+  "autocmd FileType cpp let &path.="/usr/local/include,/usr/include/AL"
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType markdown setlocal spell spelllang=en complete+=kspell
-  autocmd FileType latex setlocal spell spelllang=en complete+=kspell
-  autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
+  autocmd FileType tex setlocal spell spelllang=en complete+=kspell concealcursor=
+  autocmd FileType tex let b:vimtex_main = 'main.tex'
   autocmd FileType gitcommit setlocal spell spelllang=en complete+=kspell
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab colorcolumn=80
   autocmd FileType c,cpp,python autocmd BufWritePre <buffer> %s/\s\+$//e
