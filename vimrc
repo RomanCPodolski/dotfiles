@@ -216,7 +216,7 @@ colorscheme darkmate
 
 if has("autocmd")
   filetype on
-  autocmd FileType c,cpp,objc setlocal ts=2 sts=2 sw=2 noexpandtab colorcolumn=80
+  autocmd FileType c,cpp,objc setlocal ts=2 sts=2 sw=2 expandtab colorcolumn=80
   autocmd FileType c,cpp,objc ClangFormatAutoEnable
   autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
   autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>

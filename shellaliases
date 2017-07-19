@@ -23,8 +23,9 @@ alias to.dropbox='cd ~/Dropbox'
 alias to.docs='cd ${MYDOCUMENTS}'
 alias to.code='cd ${MYCODE}'
 alias to.scratch='cd ${MYSCRATCH}'
-
 alias to.devapps='cd ${MYDEVAPPS}'
+alias to.thesis='cd ${MYDOCUMENTS}/masterarbeit/thesis'
+alias to.roboterdynamikpraktikum='cd /Users/romancpodolski/Dropbox/Bildung/Uni/Master/Roboter\ Dynamik\ Praktikum'
 
 
 #################################
