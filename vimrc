@@ -5,9 +5,9 @@ call plug#begin('~/.vim/plugged')
 " =========================================
 " Plugins 
 " =========================================
-Plug 'L9'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
@@ -23,21 +23,18 @@ Plug 'Yggdroot/indentLine'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 " colorschemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'wellsjo/wellsokai.vim'
 Plug 'yearofmoo/Vim-Darkmate'
-" ruby plugins
-Plug 'tpope/vim-endwise', {'for' : 'ruby'}
-Plug 'ngmy/vim-rubocop', {'for' : 'ruby'}
-Plug 'vim-ruby/vim-ruby', {'for' : 'ruby'}
-Plug 'benmills/vimux' | Plug 'skalnik/vim-vroom', {'for' : 'ruby'}
-Plug 'danchoi/ri.vim', {'for' : 'ruby'}
-Plug 'astashov/vim-ruby-debugger', {'for' : 'ruby'}
 " python plugins
 Plug 'fs111/pydoc.vim', {'for' : 'python'}
 Plug 'klen/python-mode', {'for' : 'python'}
 Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
+Plug 'kien/ctrlp.vim'
 Plug 'jalcine/cmake.vim', {'for' : 'cmake'}
 Plug 'lervag/vimtex', {'for' : 'tex'}
 Plug 'DamienCassou/textlint', {'for' : 'tex'}
@@ -89,16 +86,16 @@ set guioptions-=L
 " Syntastic configuration
 " =========================================
 "let g:syntastic_python_python_exec = '/Users/romancpodolski/anaconda/bin/python'
+let g:syntastic_python_checkers = ['python', 'pylint','pyflakes', 'pep8']
+let g:syntastic_cpp_checkers = ['cpplint', 'cppcheck', 'cpp']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+
 let g:syntastic_always_populate_loc_list = 1
 
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_save = 1
-
-let g:syntastic_python_checkers = ['python', 'pylint','pyflakes', 'pep8']
-let g:syntastic_cpp_checkers = ['cpplint', 'gcc']
-let g:syntastic_cpp_cpplint_exec = 'cpplint'
 
 set nu
 
@@ -154,7 +151,8 @@ nnoremap to  :tabnew<CR>
 nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
+" set listchars=tab:▸\ ,eol:¬, trail:·,
+set lcs=tab:▸\ ,eol:¬
 " new commands
 " write to readonly file
 cnoremap sudow w !sudo tee % >/dev/null
@@ -167,10 +165,9 @@ let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 "let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
-"let g:ycm_python_binary_path = '/usr/bin/python'
-"let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_python_binary_path = "/usr/bin/python"
 
-"let g:python_host_prog = '/usr/bin/python'
+map <F9> :YcmCompleter FixIt<CR>
 
 " Better key bindings for UtilSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger='<tab>'
@@ -210,15 +207,33 @@ colorscheme darkmate
 "let g:solarized_hitrail=0
 "let g:solarized_menu=1
 
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_method='pplatex'
+
+augroup filetypedetect
+        au BufRead,BufNewFile wscript setfiletype python
+augroup END
+
 if has("autocmd")
   filetype on
+  autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 expandtab colorcolumn=80
   autocmd FileType matlab setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType markdown setlocal spell spelllang=en complete+=kspell
   autocmd FileType latex setlocal spell spelllang=en complete+=kspell
+  autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
   autocmd FileType gitcommit setlocal spell spelllang=en complete+=kspell
-  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab colorcolumn=80
-  autocmd FileType ruby let g:vroom_use_vimux=1
-  autocmd FileType ruby let g:vroom_use_bundle_exec=1
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab colorcolumn=80
+  autocmd FileType c,cpp,python autocmd BufWritePre <buffer> %s/\s\+$//e
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer yapf
+  "autocmd FileType c,cpp,python autocmd BufWritePre <buffer> %s/,\(\S\)/, \1/g
 endif

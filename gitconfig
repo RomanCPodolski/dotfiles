@@ -168,7 +168,7 @@
 	;tool = diffmerge
 	tool = vimdiff 
 [init]
-    templatedir = ~/.dotfiles/.git_template
+    templatedir = ~/.git_template
 [mergetool]
 	prompt = false
 	keepBackup = false
