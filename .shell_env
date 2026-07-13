@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export EDITOR='nvim'
+export JAVA_HOME="${JAVA_HOME:-/tools/java/current}"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${JAVA_HOME}/include"
+export MAVEN_HOME="${MAVEN_HOME:-/tools/maven/current}"
+export RUSTUP_HOME="${RUSTUP_HOME:-$HOME/.rustup}"
+export CARGO_HOME="${CARGO_HOME:-$HOME/.cargo}"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

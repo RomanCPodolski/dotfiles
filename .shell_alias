@@ -1,0 +1,52 @@
+#!/bin/bash
+#################################
+# Simple Program Name Shortening
+
+alias g=git
+alias c=clear
+alias ..="cd .."
+alias ...="cd ../.."
+alias +="pushd ."
+alias -- -=popd
+alias gsd="git status; git describe --always"
+alias rgrep="grep -ril "
+
+# alias nvim=${HOME}/nvim.appimage
+# alias vim=nvim
+# alias vi=nvim
+alias m=make
+alias e=exit
+alias t=tmux
+
+alias please="sudo"
+alias fucking="sudo"
+alias py=python3
+alias pip=pip3
+alias ca=cargo
+alias crs="cargo run --silent"
+alias cbs="cargo build --release"
+alias crc="cargo check"
+alias mvn="mvn -B"
+alias pod=podman
+alias dok=docker
+
+#################################
+# Directory listings
+# LS_COLORS='no=01;37:fi=01;37:di=07;96:ln=01;36:pi=01;32:so=01;35:do=01;35:bd=01;33:cd=01;33:ex=01;31:mi=00;05;37:or=00;05;37:'
+# -G Add colors to ls
+# -l Long format
+# -h Short size suffixes (B, K, M, G, P)
+# -p Postpend slash to folders
+# -a Show also hidden files
+alias l="ls -tralF"
+alias ls='ls -G -h -p'
+alias ll='ls -l -G -h -p -a '
+
+alias k=kubectl
+source <(kubectl completion bash)
+complete -F __start_kubectl k
+
+#################################
+# K8s Utilities
+alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
+alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
